@@ -27,30 +27,45 @@
 - no way
 - not really
 
-## intent:mood_great
-- perfect
-- very good
-- great
-- amazing
-- wonderful
-- I am feeling very good
-- I am great
-- I'm good
+## intent:ask_purpose
+- who are you
+- what are you
+- what is your name
 
-## intent:mood_unhappy
-- sad
-- very sad
-- unhappy
-- bad
-- very bad
-- awful
-- terrible
-- not very good
-- extremely sad
-- so sad
 
-## intent:bot_challenge
-- are you a bot?
-- are you a human?
-- am I talking to a bot?
-- am I talking to a human?
+## intent:ask_options
+- what can you do
+- give me options
+- what are the options
+
+## intent:give_url
+- [https://www.allrecipes.com/recipe/12151/banana-cream-pie-i/](recipe_url)
+
+
+## intent:ask_ingreds
+- give me the ingredients
+- what are the ingredients
+
+
+## intent:ask_how_to
+- how do you [chop an onion](how_to)
+- how to [mince a tomato](how_to)
+
+## intent:ask_what_is
+- what is [a cucumber](what_is)
+
+
+## intent:ask_next_step
+- what is the next step
+
+## intent:ask_prev_step
+- what was the previous step
+
+
+## intent:ask_nth_step
+- give me the [6th](step_num) step
+- what is the [first](step_num) step
+- what is step [1](step_num)
+
+## intent:clarify
+- some garbage here that is not super clear what the user is saying
