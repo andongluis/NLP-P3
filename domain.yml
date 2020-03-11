@@ -13,6 +13,7 @@ intents:
   - ask_prev_step
   - ask_nth_step
   - clarify
+  - ask_current_step_no
 
 entities:
   - recipe_url
@@ -24,28 +25,21 @@ entities:
 slots:
   recipe_url:
     type: text
-    auto_fill: True
   recipe_valid:
     type: bool
-    auto_fill: False
   how_to:
     type: text
-    auto_fill: True
   what_is:
     type: text
-    auto_fill: True
   step_num:
     type: float
-    auto_fill: False
-
 
 
 actions:
   - utter_greet
   - utter_purpose
   - utter_ask_url
-  - action_confirm_url
-  - action_deny_url
+  - action_check_url
   - action_options
   - action_ingred_list
   - action_how_to
@@ -60,7 +54,7 @@ actions:
   - utter_idk
 
 
-templates:
+responses:
   utter_greet:
   - text: "Hey! How are you?"
 
@@ -70,35 +64,11 @@ templates:
   utter_ask_url:
   - text: "I NEED A URL OF THIS FORM"
 
-  action_check_url:
-  - text: "CHECKING IF URL {recipe_url} WORKS"
-
-  action_confirm_url:
-  - text: "URL {recipe_url} WORKS LET GET STARTED"
-
-  action_deny_url:
-  - text: "URL DOES NOT WORK"
-
-  action_options:
+  utter_options:
   - text: "THESE ARE OPTIONS"
 
-  action_ingred_list:
-  - text: "THESE ARE THE INGREDIENTS"
-
-  action_how_to:
-  - text: "THIS IS HOW TO"
-
-  action_what_is:
-  - text: "THIS IS WHAT IS"
-
-  action_next_step:
-  - text: "THIS IS NEXT STEP"
-
-  action_prev_step:
-  - text: "THIS IS PREV STEP"
-
-  action_nth_step:
-  - text: "THIS IS NTH STEP"
+  utter_current_step_no:
+  - text: "You are currently in step {step_num}"
 
   utter_suggest_steps:
   - text: "THIS IS SUGGESTING GOING OVER STEPS"
