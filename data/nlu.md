@@ -12,6 +12,12 @@
 - see you around
 - see you later
 
+## intent: thanks
+- thanks
+- thank you
+- thanks a lot
+- awesome thanks
+
 ## intent:affirm
 - yes
 - indeed
@@ -69,16 +75,19 @@
 - what is [a cucumber](what_is)
 - what is [an onion](what_is)
 - what are [onions](what_is)
+- what is [an oven](what_is)
 
 ## intent:ask_next_step
 - what is the next step
 - next step
 - next
+- what do I do next
 
 ## intent:ask_prev_step
 - what was the previous step
 - can you go to the previous step
 - previous step please
+- take me back a step
 
 ## intent:ask_nth_step
 - give me the [6th](step_num) step

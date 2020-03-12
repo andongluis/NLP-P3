@@ -33,6 +33,9 @@ slots:
     type: text
   step_num:
     type: float
+  ingred_list:
+    type: list
+  
 
 
 actions:
@@ -52,6 +55,7 @@ actions:
   - utter_steps_done
   - utter_goodbye
   - utter_idk
+  - utter_youre_welcome
 
 
 responses:
@@ -59,10 +63,10 @@ responses:
   - text: "Hey! How are you?"
 
   utter_purpose:
-  - text: "THIS IS MY PURPOSE"
+  - text: "I am a chatbot that can guide you through recipes!"
 
   utter_ask_url:
-  - text: "I NEED A URL OF THIS FORM"
+  - text: "I ned a valid AllRecipe URL"
 
   utter_options:
   - text: "THESE ARE OPTIONS"
@@ -84,6 +88,9 @@ responses:
 
   utter_idk:
   - text: "IDK WHAT IS HAPPENING"
+
+  utter_youre_welcome:
+  - text: "No problem"
 
 
 session_config:

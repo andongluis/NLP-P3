@@ -53,3 +53,24 @@ class ActionCheckURL(Action):
         	return_slots.append(SlotSet("recipe_valid", validity))
 
         return return_slots
+
+class ActionIngredList(Action):
+
+    def name(self) -> Text:
+        return "action_ingred_list"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        recipe_url = tracker.get_slot("recipe_url")
+
+        recipe_manager = RecipeManager(recipe_url)
+
+        ingred_list = recipe_manager.get_ingreds()
+
+        dispatcher.utter_message(text="Ingreds: {}".format(ingred_list))
+
+        return [SlotSet("ingred_list", ingred_list)]
+
+        
