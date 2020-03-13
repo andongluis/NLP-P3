@@ -13,7 +13,7 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
 
-from p2_code import RecipeManager, is_url_valid
+from p2_code import RecipeManager, is_url_valid, merriam_webster_search
 
 
 recipe_manager = None
@@ -107,6 +107,35 @@ class ActionPrevStep(Action):
         dispatcher.utter_message(text=next_step)
 
         return [SlotSet("step_num", step_num-1)]
+
+class ActionNthStep(Action):
+    def name(self) -> Text:
+            return "action_nth_step"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        step_num = next(tracker.get_latest_entity_values("step_num"), None) # from Rasa online
+
+        dispatcher.utter_message(text=step_num)
+
+        return [SlotSet("step_num", step_num)]
+
+class ActionWhatIs(Action):
+    def name(self) -> Text:
+            return "action_what_is"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        what_text = next(tracker.get_latest_entity_values("what_is"), None) # from Rasa online
+        res = merriam_webster_search(what_text)
+
+        dispatcher.utter_message(text=res)
+
+        return [SlotSet("what_is", res)]
 
 """
 class ActionShowIngreds(Action):

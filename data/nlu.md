@@ -18,7 +18,8 @@
 - bye
 - goodbye
 - see you around
-- see you later
+- see you 
+- that's all
 
 ## intent:thank
 - thanks
@@ -26,6 +27,8 @@
 - thanks a lot
 - awesome thanks
 - Thank you
+- that's great
+- that's what I needed
 
 ## intent:affirm
 - yes
@@ -33,6 +36,8 @@
 - of course
 - that sounds good
 - correct
+- yep
+- uh-huh
 
 ## intent:deny
 - no
@@ -41,16 +46,19 @@
 - don't like that
 - no way
 - not really
+- nope
 
 ## intent:ask_purpose
 - who are you
 - what are you
 - what is your name
+- what is this
 
 ## intent:ask_options
 - what can you do
 - give me options
 - what are the options
+- can I see the options
 
 ## intent:give_url
 - the url is [https://www.allrecipes.com/recipe/12151/banana-cream-pie-i/](recipe_url)
@@ -98,6 +106,11 @@
 - how do you [chop an onion](how_to)
 - how to [mince a tomato](how_to)
 - how to [chop](how_to)
+- how to [crack an egg](how_to)
+- how to [cook the steak](how_to)
+- how to [sear the beef](how_to)
+- how to [puree the parsley](how_to)
+- how to [mince garlic](how_to)
 
 ## intent:ask_what_is
 - what is [a cucumber](what_is)
@@ -105,6 +118,7 @@
 - what are [onions](what_is)
 - what is [an oven](what_is)
 - What is [butter](what_is)?
+- what is [minced garlic](what_is)
 
 ## intent:ask_steps
 - show me the steps
@@ -112,6 +126,7 @@
 - what are the steps
 - steps
 - show steps
+- can I see the steps
 
 ## intent:ask_next_step
 - what is the next step
@@ -145,6 +160,8 @@
 - is bernie sanders the best
 - joe biden ate my sandwich
 - bloomberg did not get me a lollipop
+- can I see that
+- what
 
 ## regex:recipe_url
 - https?:\/\/www.allrecipes.com\/recipe\/\d+\/(.*?)

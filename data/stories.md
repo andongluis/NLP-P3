@@ -367,3 +367,22 @@
 * ask_next_step
     - action_next_step
     - slot{"step_num": 1}
+
+## interactive_story_2
+* greet
+    - utter_greet
+* greet
+    - utter_purpose
+    - utter_ask_url
+* give_url
+    - action_check_url
+    - slot{"recipe_valid": true}
+    - slot{"step_num": 0}
+    - utter_options
+* ask_steps
+    - action_next_step
+    - slot{"step_num": 1}
+* ask_what_is{"what_is"="butter"}
+  - action_what_is
+* thank
+  - utter_youre_welcome
