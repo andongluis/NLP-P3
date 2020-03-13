@@ -111,6 +111,9 @@
 - how to [sear the beef](how_to)
 - how to [puree the parsley](how_to)
 - how to [mince garlic](how_to)
+- how do I [preheat an over](how_to)
+- how do I [peel a banana](how_to)
+- how do I [mix the ingredients](how+to)
 
 ## intent:ask_what_is
 - what is [a cucumber](what_is)

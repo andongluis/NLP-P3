@@ -51,6 +51,18 @@ def merriam_webster_search(term):
 
     return print_str
 
+def _construct_how_to_tutorial(term):
+    page_url = "https://www.youtube.com/results?search_query="
+    for word in term:
+        page_url += word + "+"
+    page = requests.get(page_url)
+    href = ""
+    if page:
+        soup = BeautifulSoup(page.content, 'html.parser')
+        href = soup.find_all("a", {"class": ["yt-simple-endpoint" "inline-block" "style-scope" "ytd-thumbnail"]})[0].get('href')
+    else:
+        return "I couldn't find a tutorial for that question"
+    return "Check out this tutorial: " + href
 
 def is_url_valid(page_url):
     if type(page_url) is str:

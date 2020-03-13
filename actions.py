@@ -13,7 +13,7 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
 
-from p2_code import RecipeManager, is_url_valid, merriam_webster_search
+from p2_code import RecipeManager, is_url_valid, merriam_webster_search, _construct_how_to_tutorial
 
 
 recipe_manager = None
@@ -132,6 +132,21 @@ class ActionWhatIs(Action):
 
         what_text = next(tracker.get_latest_entity_values("what_is"), None) # from Rasa online
         res = merriam_webster_search(what_text)
+
+        dispatcher.utter_message(text=res)
+
+        return [SlotSet("what_is", res)]
+
+class ActionHowTo(Action):
+    def name(self) -> Text:
+            return "action_how_to"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        how_text = next(tracker.get_latest_entity_values("how_to"), None) # from Rasa online
+        res = _construct_how_to_tutorial(how_text)
 
         dispatcher.utter_message(text=res)
 
