@@ -1,12 +1,56 @@
-
 import requests
 from bs4 import BeautifulSoup
 
 from functools import reduce
 from operator import concat
 
-
 import re
+
+from nltk.stem import PorterStemmer 
+   
+PS = PorterStemmer() 
+
+def _is_number(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
+
+def _construct_word_def(term):
+    page_url = "https://www.merriam-webster.com/dictionary/{}".format(term)
+    print_str = ""
+    page = requests.get(page_url)
+    if page:
+        soup = BeautifulSoup(page.content, 'html.parser')
+        hword = soup.find_all(class_="hword")[0].text
+        defword = soup.find_all(class_="dtText")[0].text
+        print_str = hword + defword
+    return print_str
+
+def _safe_stem_construct_word_def(term):
+    string = _construct_word_def(PS.stem(term))
+    if string == "":
+        string = _construct_word_def(term)
+    return string
+
+def merriam_webster_search(term):
+    term = term.strip().lower()
+    # First, will try to search entire phrase
+    page_url = "https://www.merriam-webster.com/dictionary/{}".format(term)
+
+    print_str = _safe_stem_construct_word_def(term)
+    
+    if print_str == "":
+        terms = [word for word in term.split() if not _is_number(word)]
+        print_str = "We could not find a Merriam-Webster definition for '{}'.\n".format(term)
+        print_str += "Instead, we will look up each word individually.\n"
+        for word in terms:
+            print_str += _safe_stem_construct_word_def(word)
+            print_str += "\n"
+
+    return print_str
+
 
 def is_url_valid(page_url):
     if type(page_url) is str:
