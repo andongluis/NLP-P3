@@ -29,6 +29,10 @@ class ActionCheckURL(Action):
 
         recipe_url = tracker.get_slot("recipe_url")
 
+        global recipe_manager
+
+        recipe_manager = RecipeManager(recipe_url)
+
         print(recipe_url)
         print(tracker.current_state())
         print(tracker.current_slot_values())
@@ -38,9 +42,6 @@ class ActionCheckURL(Action):
         	print("is valid")
         	validity = True
         	dispatcher.utter_message(text="Url {} is valid".format(recipe_url))
-
-        	# Set up recipe_manager
-        	recipe_manager = RecipeManager(recipe_url)
 
         	return_slots.append(SlotSet("recipe_valid", validity))
         	return_slots.append(SlotSet("step_num", 0))
@@ -63,14 +64,66 @@ class ActionIngredList(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        recipe_url = tracker.get_slot("recipe_url")
-
-        recipe_manager = RecipeManager(recipe_url)
-
         ingred_list = recipe_manager.get_ingreds()
 
-        dispatcher.utter_message(text="Ingreds: {}".format(ingred_list))
+        dispatcher.utter_message(text="\n".join(ing for ing in ingred_list))
 
         return [SlotSet("ingred_list", ingred_list)]
 
-        
+class ActionNextStep(Action):
+
+    def name(self) -> Text:
+        return "action_next_step"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        step_num = tracker.get_slot("step_num")
+
+        next_step = recipe_manager.get_step(step_num)
+
+        dispatcher.utter_message(text=next_step)
+
+        return [SlotSet("step_num", step_num+1)]
+
+class ActionPrevStep(Action):
+
+    def name(self) -> Text:
+        return "action_prev_step"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+
+
+        step_num = tracker.get_slot("step_num")
+
+        next_step = recipe_manager.get_step(step_num-2)
+
+        dispatcher.utter_message(text=next_step)
+
+        return [SlotSet("step_num", step_num-1)]
+
+"""
+class ActionShowIngreds(Action):
+
+    def name(self) -> Text:
+        return "action_ingred_list"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        print(tracker.current_state())
+        print(tracker.current_slot_values())
+
+        return_slots = []
+
+        return_slots.append(SlotSet("ingredients", recipe_manager.get_ingreds()))
+
+        dispatcher.utter_message(text="got ingredients")
+
+        return return_slots
+"""

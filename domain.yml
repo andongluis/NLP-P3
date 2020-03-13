@@ -1,98 +1,87 @@
-intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - ask_purpose
-  - ask_options
-  - give_url
-  - ask_ingreds
-  - ask_how_to
-  - ask_what_is
-  - ask_next_step
-  - ask_prev_step
-  - ask_nth_step
-  - clarify
-  - ask_current_step_no
-
+actions:
+- action_check_url
+- action_how_to
+- action_ingred_list
+- action_next_step
+- action_nth_step
+- action_options
+- action_prev_step
+- action_what_is
+- utter_ask_url
+- utter_current_step_no
+- utter_goodbye
+- utter_greet
+- utter_idk
+- utter_options
+- utter_purpose
+- utter_steps_done
+- utter_suggest_next_step
+- utter_suggest_steps
+- utter_youre_welcome
 entities:
-  - recipe_url
-  - how_to
-  - what_is
-  - step_num
-
-
+- greet
+- how_to
+- recipe_url
+- step_num
+- what_is
+intents:
+- affirm
+- give_url
+- ask_next_step
+- greet
+- ask_prev_step
+- ask_ingreds
+- thank
+- ask_what_is
+- goodbye
+- deny
+- ask_purpose
+- ask_options
+- ask_steps
+- ask_how_to
+- ask_nth_step
+- clarify
+- ask_current_step_no
+responses:
+  utter_ask_url:
+  - text: I need a valid AllRecipe URL
+  utter_current_step_no:
+  - text: You are currently in step {step_num}
+  utter_goodbye:
+  - text: Bye
+  utter_greet:
+  - text: Hey! How are you?
+  utter_idk:
+  - text: IDK WHAT IS HAPPENING
+  utter_options:
+  - text: Go over ingredients list or Go over recipe steps.
+  utter_purpose:
+  - text: I am a chatbot that can guide you through recipes!
+  utter_steps_done:
+  - text: THIS IS WHEN STEPS ARE DONE
+  utter_suggest_next_step:
+  - text: THIS IS SUGGEST NEXT STEP
+  utter_suggest_steps:
+  - text: THIS IS SUGGESTING GOING OVER STEPS
+  utter_youre_welcome:
+  - text: No problem
+session_config:
+  carry_over_slots_to_new_session: true
+  session_expiration_time: 60
 slots:
+  how_to:
+    type: text
+  ingred_list:
+    type: list
+  next_step:
+    type: text
   recipe_url:
     type: text
   recipe_valid:
     type: bool
-  how_to:
-    type: text
+  step_num:
+    max_value: 1.0
+    min_value: 0.0
+    type: float
   what_is:
     type: text
-  step_num:
-    type: float
-  ingred_list:
-    type: list
-  
-
-
-actions:
-  - utter_greet
-  - utter_purpose
-  - utter_ask_url
-  - action_check_url
-  - action_options
-  - action_ingred_list
-  - action_how_to
-  - action_what_is
-  - action_next_step
-  - action_prev_step
-  - action_nth_step
-  - utter_suggest_steps
-  - utter_suggest_next_step
-  - utter_steps_done
-  - utter_goodbye
-  - utter_idk
-  - utter_youre_welcome
-
-
-responses:
-  utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_purpose:
-  - text: "I am a chatbot that can guide you through recipes!"
-
-  utter_ask_url:
-  - text: "I ned a valid AllRecipe URL"
-
-  utter_options:
-  - text: "THESE ARE OPTIONS"
-
-  utter_current_step_no:
-  - text: "You are currently in step {step_num}"
-
-  utter_suggest_steps:
-  - text: "THIS IS SUGGESTING GOING OVER STEPS"
-
-  utter_suggest_next_step:
-  - text: "THIS IS SUGGEST NEXT STEP"
-
-  utter_steps_done:
-  - text: "THIS IS WHEN STEPS ARE DONE"
-
-  utter_goodbye:
-  - text: "Bye"
-
-  utter_idk:
-  - text: "IDK WHAT IS HAPPENING"
-
-  utter_youre_welcome:
-  - text: "No problem"
-
-
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true

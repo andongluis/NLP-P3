@@ -5,6 +5,14 @@
 - good morning
 - good evening
 - hey there
+- Hello
+- I'm well
+- I'm well. How are you?
+- I'm well, thanks
+- Good
+- I'm doing well
+- Doing well
+- I'm good
 
 ## intent:goodbye
 - bye
@@ -12,11 +20,12 @@
 - see you around
 - see you later
 
-## intent: thanks
+## intent:thank
 - thanks
 - thank you
 - thanks a lot
 - awesome thanks
+- Thank you
 
 ## intent:affirm
 - yes
@@ -44,27 +53,45 @@
 - what are the options
 
 ## intent:give_url
-- [https://www.allrecipes.com/recipe/12151/banana-cream-pie-i/](recipe_url)
-- [https://www.allrecipes.com/recipe/258170/easy-white-chocolate-ganache/](recipe_url)
-- [https://www.allrecipes.com/recipe/33647/chocolate-ganache/](recipe_url)
-- [https://www.allrecipes.com/recipe/23600/worlds-best-lasagna/](recipe_url)
+- the url is [https://www.allrecipes.com/recipe/12151/banana-cream-pie-i/](recipe_url)
+- the url is [https://www.allrecipes.com/recipe/258170/easy-white-chocolate-ganache/](recipe_url)
+- the url is [https://www.allrecipes.com/recipe/33647/chocolate-ganache/](recipe_url)
+- the url is [https://www.allrecipes.com/recipe/23600/worlds-best-lasagna/](recipe_url)
 - www.allrecipes.com/recipe/12151/banana-cream-pie-i/
-- [https://www.allrecipes.com/recipe/12720/grilled-salmon-i/](recipe_url)
-- [http://www.allrecipes.com/recipe/229960/shrimp-scampi-with-pasta/](recipe_url)
-- [https://www.allrecipes.com/recipe/8302/banana-chocolate-chip-cake/](recipe_url)
-- [http://www.allrecipes.com/recipe/59661/spinach-enchiladas/](recipe_url)
-- [https://www.allrecipes.com/recipe/216564/swedish-meatballs-svenska-kottbullar/](recipe_url)
-- [https://www.allrecipes.com/recipe/218091/classic-and-simple-meat-lasagna/](recipe_url)
-- [https://www.allrecipes.com/recipe/24074/alysias-basic-meat-lasagna/](recipe_url)
-- [www.allrecipes.com/recipe/218120/hearty-meat-lasagna/](recipe_url)
+- the url is [https://www.allrecipes.com/recipe/12720/grilled-salmon-i/](recipe_url)
+- the url is [http://www.allrecipes.com/recipe/229960/shrimp-scampi-with-pasta/](recipe_url)
+- the url is [https://www.allrecipes.com/recipe/8302/banana-chocolate-chip-cake/](recipe_url)
+- the url is [http://www.allrecipes.com/recipe/59661/spinach-enchiladas/](recipe_url)
+- the url is [https://www.allrecipes.com/recipe/216564/swedish-meatballs-svenska-kottbullar/](recipe_url)
+- the url is [https://www.allrecipes.com/recipe/218091/classic-and-simple-meat-lasagna/](recipe_url)
+- the url is [https://www.allrecipes.com/recipe/24074/alysias-basic-meat-lasagna/](recipe_url)
+- url: [https://www.allrecipes.com/recipe/12151/banana-cream-pie-i/](recipe_url)
+- url: [https://www.allrecipes.com/recipe/258170/easy-white-chocolate-ganache/](recipe_url)
+- url: [https://www.allrecipes.com/recipe/33647/chocolate-ganache/](recipe_url)
+- url: [https://www.allrecipes.com/recipe/23600/worlds-best-lasagna/](recipe_url)
+- url: [https://www.allrecipes.com/recipe/12720/grilled-salmon-i/](recipe_url)
+- url: [http://www.allrecipes.com/recipe/229960/shrimp-scampi-with-pasta/](recipe_url)
+- url: [https://www.allrecipes.com/recipe/8302/banana-chocolate-chip-cake/](recipe_url)
+- url: [http://www.allrecipes.com/recipe/59661/spinach-enchiladas/](recipe_url)
+- url: [https://www.allrecipes.com/recipe/216564/swedish-meatballs-svenska-kottbullar/](recipe_url)
+- url: [https://www.allrecipes.com/recipe/218091/classic-and-simple-meat-lasagna/](recipe_url)
+- url: [https://www.allrecipes.com/recipe/24074/alysias-basic-meat-lasagna/](recipe_url)
 - some-garbage-of-things-that-are-url-like.com
 - www.sfsdkljdsliee.com
 - [https://www.google.com/](recipe_url)
 - [https://www.allrecipes.com/](recipe_url)
+- url: [https://www.allrecipes.com/recipe/23600/worlds-best-lasagna](recipe_url)
+- [https://www.allrecipes.com/recipe/23600/worlds-best-lasagna](recipe_url)
+- [https://www.allrecipes.com/recipe/12151/banana-cream-pie-i/](recipe_url)
 
 ## intent:ask_ingreds
 - give me the ingredients
 - what are the ingredients
+- show ingredients
+- ingredients
+- Go over ingredients
+- ingredient
+- go over ingredients
 
 ## intent:ask_how_to
 - how do you [chop an onion](how_to)
@@ -76,18 +103,36 @@
 - what is [an onion](what_is)
 - what are [onions](what_is)
 - what is [an oven](what_is)
+- What is [butter](what_is)?
+
+## intent:ask_steps
+- show me the steps
+- give me the steps
+- what are the steps
+- steps
+- show steps
 
 ## intent:ask_next_step
 - what is the next step
 - next step
 - next
 - what do I do next
+- show me the steps
+- what are the steps
+- steps
+- give me the next step
+- step
+- Show me the steps
+- Give me the next step
 
 ## intent:ask_prev_step
 - what was the previous step
 - can you go to the previous step
 - previous step please
 - take me back a step
+- what was the last step
+- give me the last step
+- previous step
 
 ## intent:ask_nth_step
 - give me the [6th](step_num) step
@@ -99,3 +144,7 @@
 - is bernie sanders the best
 - joe biden ate my sandwich
 - bloomberg did not get me a lollipop
+
+## regex:recipe_url
+- https?:\/\/www.allrecipes.com\/recipe\/\d+\/(.*?)
+- https?:\/\/www.allrecipes.com\/recipe\/\d+\/(.*?)\/

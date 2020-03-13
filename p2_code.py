@@ -10,7 +10,9 @@ import re
 
 def is_url_valid(page_url):
     if type(page_url) is str:
-        if re.match(r"https?:\/\/www.allrecipes.com\/recipe\/\d+\/(.*?)\/", page_url)
+        if re.match(r"https?:\/\/www.allrecipes.com\/recipe\/\d+\/(.*?)\/", page_url):
+            return True
+        elif re.match(r"https?:\/\/www.allrecipes.com\/recipe\/\d+\/.*", page_url):
             return True
     return False
 
