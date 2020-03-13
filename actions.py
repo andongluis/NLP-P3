@@ -25,9 +25,11 @@ class ActionCheckURL(Action):
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+            domain):
 
-        recipe_url = tracker.get_slot("recipe_url")
+        recipe_url = tracker.latest_message['text']
+
+        print(recipe_url)
 
         global recipe_manager
 

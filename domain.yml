@@ -25,10 +25,10 @@ entities:
 - step_num
 - what_is
 intents:
-- affirm
-- give_url
 - ask_next_step
 - greet
+- give_url
+- affirm
 - ask_prev_step
 - ask_ingreds
 - thank

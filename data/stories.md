@@ -334,3 +334,36 @@
 * affirm
     - action_next_step
     - slot{"step_num": 5}
+
+## interactive_story_1
+* greet
+    - utter_greet
+* greet
+    - utter_purpose
+    - utter_ask_url
+* give_url
+    - action_check_url
+
+## interactive_story_1
+* greet
+    - utter_greet
+* greet
+    - utter_purpose
+    - utter_ask_url
+* give_url
+    - action_check_url
+
+## interactive_story_1
+* greet
+    - utter_greet
+* greet
+    - utter_purpose
+    - utter_ask_url
+* give_url
+    - action_check_url
+    - slot{"recipe_valid": true}
+    - slot{"step_num": 0}
+    - utter_options
+* ask_next_step
+    - action_next_step
+    - slot{"step_num": 1}
