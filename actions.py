@@ -151,26 +151,3 @@ class ActionWhatIs(Action):
         dispatcher.utter_message(text=res)
 
         return [SlotSet("what_is", res)]
-
-
-"""
-class ActionShowIngreds(Action):
-
-    def name(self) -> Text:
-        return "action_ingred_list"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        print(tracker.current_state())
-        print(tracker.current_slot_values())
-
-        return_slots = []
-
-        return_slots.append(SlotSet("ingredients", recipe_manager.get_ingreds()))
-
-        dispatcher.utter_message(text="got ingredients")
-
-        return return_slots
-"""

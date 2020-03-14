@@ -18,7 +18,7 @@
 - bye
 - goodbye
 - see you around
-- see you 
+- see you
 - that's all
 
 ## intent:thank
@@ -38,6 +38,7 @@
 - correct
 - yep
 - uh-huh
+- Yes
 
 ## intent:deny
 - no
@@ -92,6 +93,7 @@
 - [https://www.allrecipes.com/recipe/23600/worlds-best-lasagna](recipe_url)
 - [https://www.allrecipes.com/recipe/12151/banana-cream-pie-i/](recipe_url)
 - https://www.allrecipes.com/recipe/12151/banana-cream-pie-i/
+- https://www.allrecipes.com/recipe/218091/classic-and-simple-meat-lasagna/
 
 ## intent:ask_ingreds
 - give me the ingredients
@@ -114,6 +116,13 @@
 - how do I [preheat an over](how_to)
 - how do I [peel a banana](how_to)
 - how do I [mix the ingredients](how+to)
+- How do I [cook pasta](how_to)?
+- how to [cook pasta](how_to)
+- how do i [cook pasta](how_to)
+- how do i [peel onions](how_to)?
+- how do i [fry meatballs](how_to)
+- how do i [chop an onion](how_to)
+- how do i [chop an onion](how_to)
 
 ## intent:ask_what_is
 - what is [a cucumber](what_is)
@@ -122,6 +131,7 @@
 - what is [an oven](what_is)
 - What is [butter](what_is)?
 - what is [minced garlic](what_is)
+- What is [pasta sauce](what_is)?
 
 ## intent:ask_steps
 - show me the steps
@@ -143,6 +153,7 @@
 - step
 - Show me the steps
 - Give me the next step
+- Go over the steps
 
 ## intent:ask_prev_step
 - what was the previous step

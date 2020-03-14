@@ -59,7 +59,8 @@ def _construct_how_to_tutorial(term):
     href = ""
     if page:
         soup = BeautifulSoup(page.content, 'html.parser')
-        href = soup.find_all("a", {"class": ["yt-simple-endpoint" "inline-block" "style-scope" "ytd-thumbnail"]})[0].get('href')
+        href = soup.findAll('a',attrs={'class':'yt-uix-tile-link'})[0]['href']
+        href = 'https://www.youtube.com/' + href
     else:
         return "I couldn't find a tutorial for that question"
     return "Check out this tutorial: " + href

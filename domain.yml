@@ -25,20 +25,20 @@ entities:
 - step_num
 - what_is
 intents:
+- ask_how_to
 - ask_next_step
 - greet
 - give_url
+- ask_what_is
+- ask_ingreds
 - affirm
 - ask_prev_step
-- ask_ingreds
 - thank
-- ask_what_is
 - goodbye
 - deny
 - ask_purpose
 - ask_options
 - ask_steps
-- ask_how_to
 - ask_nth_step
 - clarify
 - ask_current_step_no
@@ -54,13 +54,13 @@ responses:
   utter_idk:
   - text: IDK WHAT IS HAPPENING
   utter_options:
-  - text: Go over ingredients list or Go over recipe steps.
+  - text: Do you want to go over ingredients list or go over recipe steps?
   utter_purpose:
   - text: I am a chatbot that can guide you through recipes!
   utter_steps_done:
   - text: THIS IS WHEN STEPS ARE DONE
   utter_suggest_next_step:
-  - text: THIS IS SUGGEST NEXT STEP
+  - text: Do you want to go to the next step?
   utter_suggest_steps:
   - text: THIS IS SUGGESTING GOING OVER STEPS
   utter_youre_welcome:
