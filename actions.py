@@ -122,6 +122,21 @@ class ActionNthStep(Action):
 
         return [SlotSet("step_num", step_num)]
 
+class ActionHowTo(Action):
+    def name(self) -> Text:
+            return "action_how_to"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        how_text = next(tracker.get_latest_entity_values("how_to"), None) # from Rasa online
+        res = _construct_how_to_tutorial(how_text)
+
+        dispatcher.utter_message(text=res)
+
+        return [SlotSet("what_is", res)]
+
 class ActionWhatIs(Action):
     def name(self) -> Text:
             return "action_what_is"
@@ -137,20 +152,6 @@ class ActionWhatIs(Action):
 
         return [SlotSet("what_is", res)]
 
-class ActionHowTo(Action):
-    def name(self) -> Text:
-            return "action_how_to"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        how_text = next(tracker.get_latest_entity_values("how_to"), None) # from Rasa online
-        res = _construct_how_to_tutorial(how_text)
-
-        dispatcher.utter_message(text=res)
-
-        return [SlotSet("what_is", res)]
 
 """
 class ActionShowIngreds(Action):
