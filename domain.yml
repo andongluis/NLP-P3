@@ -25,9 +25,9 @@ entities:
 - step_num
 - what_is
 intents:
+- greet
 - ask_how_to
 - ask_next_step
-- greet
 - give_url
 - ask_what_is
 - ask_ingreds
@@ -56,7 +56,8 @@ responses:
   utter_options:
   - text: Do you want to go over ingredients list or go over recipe steps?
   utter_purpose:
-  - text: I am a chatbot that can guide you through recipes!
+  - text: I am a chatbot that can guide you through recipes! Give me a url of a recipe
+      from AllRecipe. e.g. https://www.allrecipes.com/recipe/12151/banana-cream-pie-i/
   utter_steps_done:
   - text: THIS IS WHEN STEPS ARE DONE
   utter_suggest_next_step:

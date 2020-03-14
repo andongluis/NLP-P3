@@ -122,7 +122,6 @@
 - how do i [peel onions](how_to)?
 - how do i [fry meatballs](how_to)
 - how do i [chop an onion](how_to)
-- how do i [chop an onion](how_to)
 
 ## intent:ask_what_is
 - what is [a cucumber](what_is)

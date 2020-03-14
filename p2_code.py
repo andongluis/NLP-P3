@@ -35,19 +35,21 @@ def _safe_stem_construct_word_def(term):
     return string
 
 def merriam_webster_search(term):
-    term = term.strip().lower()
-    # First, will try to search entire phrase
-    page_url = "https://www.merriam-webster.com/dictionary/{}".format(term)
+    print_str = ""
+    if term:
+        term = term.strip().lower()
+        # First, will try to search entire phrase
+        page_url = "https://www.merriam-webster.com/dictionary/{}".format(term)
 
-    print_str = _safe_stem_construct_word_def(term)
-    
-    if print_str == "":
-        terms = [word for word in term.split() if not _is_number(word)]
-        print_str = "We could not find a Merriam-Webster definition for '{}'.\n".format(term)
-        print_str += "Instead, we will look up each word individually.\n"
-        for word in terms:
-            print_str += _safe_stem_construct_word_def(word)
-            print_str += "\n"
+        print_str = _safe_stem_construct_word_def(term)
+        
+        if print_str == "":
+            terms = [word for word in term.split() if not _is_number(word)]
+            print_str = "We could not find a Merriam-Webster definition for '{}'.\n".format(term)
+            print_str += "Instead, we will look up each word individually.\n"
+            for word in terms:
+                print_str += _safe_stem_construct_word_def(word)
+                print_str += "\n"
 
     return print_str
 

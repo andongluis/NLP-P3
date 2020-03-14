@@ -456,3 +456,7 @@
     - slot{"how_to": "chop an onion"}
     - action_how_to
     - slot{"what_is": "Check out this tutorial: https://www.youtube.com//watch?v=dCGS067s0zo"}
+
+## interactive_story_1
+* greet
+    - utter_greet
