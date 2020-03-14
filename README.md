@@ -2,6 +2,9 @@
 
 This is our interactive conversational interface for walking through a recipe.
 
+Team: Alexander Einarsson, Andong Luis Li Zhao, Quinn Shim
+Github: https://github.com/andongluis/NLP-P3
+
 ## Requirements
 
 The project uses Rasa as the main architecture for the conversational interface.
